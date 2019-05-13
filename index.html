@@ -14,8 +14,8 @@
 				<span class="logo_name">ikun</span>
 			</div>
 			<div class="banner_right">
-				<span>登录</span>
-				<span>注册</span>
+				<span onclick="showb(0)">登录</span>
+				<span onclick="showb(1)">注册</span>
 			</div>
 		</div>
 		<!-- 开始介绍问卷调查 -->
@@ -31,8 +31,51 @@
 			<div class="inf_img"></div>
 		</div>
 		<!-- 登录 -->
-		<div class="board denglu"></div>
+		<div class="board denglu" id="denglu" onclick="hidb(0)"  style="display: none;">
+			<div>
+				<form action="#" method="post">
+					<input type="text" name="user" class="denglu_user" placeholder="用户名" />
+					<input type="password" name="password" class="denglu_psd" placeholder="密码" />
+					<input type="submit" class="denglu_sub" name="登录" />
+				</form>
+			</div>
+		</div>
 		<!-- 注册 -->
-		<div class="board zhuce"></div>
+		<div class="board zhuce" id="zhuce" onclick="hidb(1)">
+			<div>
+				<form action="#" method="post">
+					<input type="text" name="user" class="zhuce_user" placeholder="用户名" />
+					<input type="text" name="password" class="zhuce_psd" placeholder="密码" />
+					<input type="text" name="email" class="zhuce_email" placeholder="邮箱" />
+					<input type="submit" class="zhuce_sub" name="注册" />
+				</form>
+			</div>
+		</div>
+		
+		<script>
+			// 点击显示隐藏board
+			function showb(num) {
+				// 0登录1注册
+				if(num==0) {
+					var denglu = document.getElementById("denglu")
+					denglu.style.display = 'block'
+				}
+				else {
+					var zhuce  = document.getElementById("zhuce")
+					zhuce.style.display = 'block'
+				}
+			}
+			
+			function hidb(num) {
+				if(num==0) {
+					var denglu = document.getElementById("denglu")
+					denglu.style.display = 'none'
+				}
+				else {
+					var zhuce = document.getElementById("zhuce")
+					zhuce.style.display = 'none'
+				}
+			}
+		</script>
 	</body>
 </html>
