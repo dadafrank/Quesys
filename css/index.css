@@ -114,11 +114,23 @@ html,body {
 	background-color: white;
 	border-radius: 4px;
 }
-.denglu > form {
+.zhuce > div {
+	width: 90%;
+	height: 180px;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	margin-top: -90px;
+	margin-left: -45%;
+	background-color: white;
+	border-radius: 4px;
+}
+.denglu > form,.zhuce > form {
 	width: 100%;
 	height: 100%;
 }
-.denglu_user,.denglu_psd {
+.denglu_user,.denglu_psd,.zhuce_user,.zhuce_psd,.zhuce_email {
 	/* 去除原本样式 */
 	outline: none;
 	border: none;
@@ -130,7 +142,7 @@ html,body {
 	padding-top: 10px;
 	border-bottom: 1px solid black;
 }
-.denglu_sub {
+.denglu_sub,.zhuce_sub {
 	border: none;
 	outline: none;
 	display: block;

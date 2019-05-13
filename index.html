@@ -53,28 +53,42 @@
 		</div>
 		
 		<script>
+			// 阻止冒泡事件
+			function stopPropagation(e) {
+				e = e || window.event;
+				if(e.stopPropagation) {
+					e.stopPropagation();
+				}
+				else {
+					e.cancelBubble = true;
+				}
+			}
 			// 点击显示隐藏board
 			function showb(num) {
+				if(e.target.id != 'board') {
+					alert("111")
+				}
 				// 0登录1注册
 				if(num==0) {
 					var denglu = document.getElementById("denglu")
-					denglu.style.display = 'block'
+					denglu.style.display = 'block';
 				}
 				else {
 					var zhuce  = document.getElementById("zhuce")
-					zhuce.style.display = 'block'
+					zhuce.style.display = 'block';
 				}
 			}
 			
 			function hidb(num) {
 				if(num==0) {
 					var denglu = document.getElementById("denglu")
-					denglu.style.display = 'none'
+					denglu.style.display = 'none';
 				}
 				else {
 					var zhuce = document.getElementById("zhuce")
-					zhuce.style.display = 'none'
+					zhuce.style.display = 'none';
 				}
+				stopPropagation()
 			}
 		</script>
 	</body>
