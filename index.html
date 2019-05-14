@@ -30,8 +30,11 @@
 			<span class="inf_span">实时的分析图表</span>
 			<div class="inf_img"></div>
 		</div>
+		<footer>
+			<p>designed by Frank</p>
+		</footer>
 		<!-- 登录 -->
-		<div class="board denglu" id="denglu" onclick="hidb(0)"  style="display: none;">
+		<div class="board denglu" id="denglu"  style="display: none;">
 			<div>
 				<form action="#" method="post">
 					<input type="text" name="user" class="denglu_user" placeholder="用户名" />
@@ -41,7 +44,7 @@
 			</div>
 		</div>
 		<!-- 注册 -->
-		<div class="board zhuce" id="zhuce" onclick="hidb(1)">
+		<div class="board zhuce" id="zhuce" style="display: none;">
 			<div>
 				<form action="#" method="post">
 					<input type="text" name="user" class="zhuce_user" placeholder="用户名" />
@@ -53,21 +56,8 @@
 		</div>
 		
 		<script>
-			// 阻止冒泡事件
-			function stopPropagation(e) {
-				e = e || window.event;
-				if(e.stopPropagation) {
-					e.stopPropagation();
-				}
-				else {
-					e.cancelBubble = true;
-				}
-			}
 			// 点击显示隐藏board
 			function showb(num) {
-				if(e.target.id != 'board') {
-					alert("111")
-				}
 				// 0登录1注册
 				if(num==0) {
 					var denglu = document.getElementById("denglu")
