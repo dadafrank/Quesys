@@ -1,0 +1,43 @@
+html,body {
+	height: 100%;
+}
+body {
+	background-image: url(../img/bg1.jpg);
+	background-size: cover;
+}
+.banner {
+	width: 100%;
+	height: 56px;
+	background-color: skyblue;
+	text-align: center;
+	color: white;
+	font-family: '华文新魏';
+	font-size: 20px;
+	line-height: 56px;
+}
+.user_ul {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.user_ul > li {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	margin-top: 15px;
+	border-radius: 4px;
+	/* background-color: yellow; */
+	background-color: rgba(58,191,190,.3);
+	font-size: 17px;
+	letter-spacing: 4px;
+	text-align: center;
+	line-height: 100px;
+}
+.flex_white {
+	height: 1px !important;
+	background-color: rgba(0,0,0,0) !important;
+}
+.user_ul > li > a {
+	color: white;
+}
