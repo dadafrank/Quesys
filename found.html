@@ -9,20 +9,132 @@
 	</head>
 	<body>
 		<!-- 单选、多选、文本、下拉 -->
-		<div class="board">
-			11111
+		<div class="board" id="board">
+			<div class="boardhid" onclick="hidboard()">X</div>
+			<ul>
+				<li onclick="showq(1)">单选</li>
+				<li onclick="showq(2)">多选</li>
+				<li onclick="showq(3)">文本</li>
+				<li onclick="showq(4)">下拉</li>
+			</ul>
 		</div>
-		
+		<!-- 单选、单选、单选 -->
+		<div class="danxuan" id="danxuan">
+			<div class="danxuan_div container">
+				<p class="xxx" onclick="hidq(1)">X</p>
+				<p>问题</p>
+				<textarea placeholder="请输入问题"></textarea>
+				<ul class="danxuan_ul" id="danxuan_ul">
+					<li>
+						<p>选项1</p>
+						<textarea></textarea>
+					</li>
+					<li>
+						<p>选项2</p>
+						<textarea></textarea>
+					</li>
+				</ul>
+				<div class="danxuan_add_li" onclick="danxuan_add()">+</div>
+				<div class="danxuan_wancheng">完成</div>
+			</div>
+		</div>
+		<!-- 多选、多选、多选 -->
+		<div class="duoxuan" id="duoxuan">
+			<div class="duoxuan_div container">
+				<p class="xxx" onclick="hidq(2)">X</p>
+			</div>
+		</div>
+		<!-- 文本、文本、文本 -->
+		<div class="wenben" id="wenben">
+			<div class="wenben_div container">
+				<p class="xxx" onclick="hidq(3)">X</p>
+			</div>
+		</div>
+		<!-- 下拉、下拉、下拉 -->
+		<div class="xiala" id="xiala">
+			<div class="xiala_div container">
+				<p class="xxx" onclick="hidq(4)">X</p>
+			</div>
+		</div>
+		<!-- 这里是创建的主页 -->
+		<!-- 这里是创建的主页 -->
+		<!-- 这里是创建的主页 -->
 		<div class="banner">创建问卷</div>
 		<div class="found">
-			<ol>
-				<li></li>
+			<ol id="index_ol">
+				<li>
+					<p>你觉得这个页面怎么样呢？</p>
+				</li>
 			</ol>
 		</div>
-		<div class="add">新的问题</div>
+		<div class="add" onclick="showboard()">新的问题</div>
 		<div class="finish">完成</div>
+		
+		
 		<script>
-			function add() {
+			// 单选计数
+			var danxuan_num = 2;
+			// 选择的显示和隐藏
+			// 选择的显示和隐藏
+			// 选择的显示和隐藏
+			function showboard() {
+				var board = document.getElementById("board")
+				board.style.display = 'block';
+			}
+			function hidboard() {
+				var board = document.getElementById("board")
+				board.style.display = 'none';
+			}
+			// 4个的显示和隐藏
+			// 4个的显示和隐藏
+			// 4个的显示和隐藏
+			function showq(num) {
+				hidboard();
+				switch(num) {
+					case 1: var danxuan = document.getElementById("danxuan");
+							danxuan.style.display = "block";
+							break;
+					case 2: var duoxuan = document.getElementById("duoxuan");
+							duoxuan.style.display = "block";
+							break;
+					case 3: var wenben = document.getElementById("wenben");
+							wenben.style.display = "block";
+							break;
+					default: var xiala = document.getElementById("xiala");
+							xiala.style.display = "block";
+							break;
+				}
+			}
+			function hidq(num) {
+				switch(num) {
+					case 1: var danxuan = document.getElementById("danxuan");
+							danxuan.style.display = "none";
+							break;
+					case 2: var duoxuan = document.getElementById("duoxuan");
+							duoxuan.style.display = "none";
+							break;
+					case 3: var wenben = document.getElementById("wenben");
+							wenben.style.display = "none";
+							break;
+					default: var xiala = document.getElementById("xiala");
+							xiala.style.display = "none";
+							break;
+				}
+			}
+			// 单选添加
+			function danxuan_add() {
+				if (danxuan_num < 10) {
+					danxuan_num++;
+					var danxuan_ul = document.getElementById("danxuan_ul");
+					var danxuan_li = document.createElement("LI");
+					danxuan_li.innerHTML = "<p>选项"+ danxuan_num +"</p><textarea></textarea>"
+					danxuan_ul.appendChild(danxuan_li);
+				}
+				else {
+					alert("最多只能10个选项")
+				}
+			}
+			function danxuan_wancheng() {
 				
 			}
 		</script>
