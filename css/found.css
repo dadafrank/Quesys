@@ -12,7 +12,13 @@
 	width: 100%;
 }
 .found > ol {
+	width: 86%;
+	margin: auto;
+	margin-bottom: 50px;
+}
+.found > ol >li {
 	width: 100%;
+	list-style-type: decimal;
 }
 .add,.finish {
 	width: 80%;
