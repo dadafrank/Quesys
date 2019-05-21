@@ -84,7 +84,7 @@
 			</ol>
 		</div>
 		<div class="add" onclick="showboard()">新的问题</div>
-		<div class="finish">完成</div>
+		<div class="finish" onclick="wenjuan_wancheng()">完成</div>
 		
 		
 		<script>
@@ -193,7 +193,7 @@
 					}
 					var danxuan_ol = document.getElementById("index_ol");
 					var danxuan_li = document.createElement("LI");
-					danxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div>";
+					danxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='1'/>";
 					danxuan_ol.appendChild(danxuan_li);
 					hidq(1);
 					// 清空
@@ -249,7 +249,7 @@
 					}
 					var duoxuan_ol = document.getElementById("index_ol");
 					var duoxuan_li = document.createElement("LI");
-					duoxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div>";
+					duoxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='2'/>";
 					duoxuan_ol.appendChild(duoxuan_li);
 					hidq(2);
 					// 清空
@@ -269,11 +269,28 @@
 					q_num++;
 					var wenben_ol = document.getElementById("index_ol");
 					var wenben_li = document.createElement("LI");
-					wenben_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'><textarea class='wenben_textarea'></textarea></div><div class='index_ol_delete' onclick='q_delete()'>删除</div>";
+					wenben_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'><textarea class='wenben_textarea'></textarea></div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='3'/>";
 					wenben_ol.appendChild(wenben_li);
 					hidq(3);
 					// 清空
 					q.value = ''
+				}
+			}
+			// 完成问卷调查
+			function wenjuan_wancheng() {
+				var index_ol = document.getElementById("index_ol")
+				if(!index_ol.children.length) {
+					alert("请至少填写一个问题")
+				}
+				else {
+					// 传这个给后端
+					var total = "{'data':{}}";
+					var aa = "111";
+					for(var i = 0;i<index_ol.children.length;i++) {
+						aa = "'id':'"+ i +"','type':'"+ 1 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"'";
+					}
+					total = "{'data':{"+ aa +"}}";
+					alert(total)
 				}
 			}
 		</script>
