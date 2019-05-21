@@ -23,19 +23,20 @@
 			<div class="danxuan_div container">
 				<p class="xxx" onclick="hidq(1)">X</p>
 				<p>问题</p>
-				<textarea placeholder="请输入问题"></textarea>
+				<textarea placeholder="请输入问题" id="danxuan_q"></textarea>
 				<ul class="danxuan_ul" id="danxuan_ul">
 					<li>
 						<p>选项1</p>
-						<textarea></textarea>
+						<textarea class="danxuan_textarea"></textarea>
 					</li>
 					<li>
 						<p>选项2</p>
-						<textarea></textarea>
+						<textarea class="danxuan_textarea"></textarea>
 					</li>
 				</ul>
 				<div class="danxuan_add_li" onclick="danxuan_add()">+</div>
-				<div class="danxuan_wancheng">完成</div>
+				<div class="danxuan_delete_li" onclick="danxuan_delete()">-</div>
+				<div class="danxuan_wancheng" onclick="danxuan_wancheng()">完成</div>
 			</div>
 		</div>
 		<!-- 多选、多选、多选 -->
@@ -61,10 +62,7 @@
 		<!-- 这里是创建的主页 -->
 		<div class="banner">创建问卷</div>
 		<div class="found">
-			<ol class="index_ol" id="index_ol">
-				<li>
-					<p>你觉得这个页面怎么样呢？</p>
-				</li>
+			<ol class="index_ol" id="index_ol" onclick='q_delete()'>
 			</ol>
 		</div>
 		<div class="add" onclick="showboard()">新的问题</div>
@@ -74,6 +72,8 @@
 		<script>
 			// 单选计数
 			var danxuan_num = 2;
+			// 总问题数
+			var q_num = 0;
 			// 选择的显示和隐藏
 			// 选择的显示和隐藏
 			// 选择的显示和隐藏
@@ -121,21 +121,67 @@
 							break;
 				}
 			}
+			function q_delete(e) {
+				e = e || window.event;
+				var index_ol = document.getElementById("index_ol")
+				index_ol.removeChild(e.target.parentNode)
+				q_num--;
+			}
 			// 单选添加
 			function danxuan_add() {
 				if (danxuan_num < 10) {
 					danxuan_num++;
 					var danxuan_ul = document.getElementById("danxuan_ul");
 					var danxuan_li = document.createElement("LI");
-					danxuan_li.innerHTML = "<p>选项"+ danxuan_num +"</p><textarea></textarea>"
+					danxuan_li.innerHTML = "<p>选项"+ danxuan_num +"</p><textarea class='danxuan_textarea'></textarea>"
 					danxuan_ul.appendChild(danxuan_li);
 				}
 				else {
 					alert("最多只能10个选项")
 				}
 			}
+			// 单选删除
+			function danxuan_delete() {
+				if(danxuan_num > 2) {
+					var danxuan_ul = document.getElementById("danxuan_ul");
+					danxuan_ul.removeChild(danxuan_ul.lastChild);
+					danxuan_num--;
+				}
+				else {
+					alert("至少要有两项")
+				}
+			}
+			// 单选完成
 			function danxuan_wancheng() {
-				
+				var q = document.getElementById("danxuan_q")
+				var a = document.getElementsByClassName("danxuan_textarea")
+				if(q.value=='') {
+					alert("请填写问题")
+				}
+				else if (a[0].value == ''|| a[1].value == '') {
+					alert("请填写选项")
+				}
+				else {
+					// 总问题数+1
+					q_num++;
+					var aa = "";
+					for(var i = 0;i < a.length;i++) {
+						var j = "<label><input type='radio' name='danxuan"+ q_num +"'>"+ a[i].value +"</label>"
+						aa = aa + j
+						// 清空
+						a[i].value = ''
+					}
+					var danxuan_ol = document.getElementById("index_ol");
+					var danxuan_li = document.createElement("LI");
+					danxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'>"+ aa +"</div><div class='index_ol_delete'>删除</div>";
+					danxuan_ol.appendChild(danxuan_li);
+					hidq(1);
+					// 清空
+					q.value = ''
+					for(var i= danxuan_num;i>2;i--) {
+						danxuan_delete();
+					}
+				}
 			}
 		</script>
 	</body>
