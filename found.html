@@ -193,7 +193,7 @@
 					}
 					var danxuan_ol = document.getElementById("index_ol");
 					var danxuan_li = document.createElement("LI");
-					danxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='1'/>";
+					danxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input danxuan_xx'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='1'/>";
 					danxuan_ol.appendChild(danxuan_li);
 					hidq(1);
 					// 清空
@@ -249,7 +249,7 @@
 					}
 					var duoxuan_ol = document.getElementById("index_ol");
 					var duoxuan_li = document.createElement("LI");
-					duoxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='2'/>";
+					duoxuan_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input duoxuan_xx'>"+ aa +"</div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='2'/>";
 					duoxuan_ol.appendChild(duoxuan_li);
 					hidq(2);
 					// 清空
@@ -269,7 +269,7 @@
 					q_num++;
 					var wenben_ol = document.getElementById("index_ol");
 					var wenben_li = document.createElement("LI");
-					wenben_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'><textarea class='wenben_textarea'></textarea></div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='3'/>";
+					wenben_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input wenben_xx'><textarea class='wenben_textarea'></textarea></div><div class='index_ol_delete' onclick='q_delete()'>删除</div><input type='hidden' value='3'/>";
 					wenben_ol.appendChild(wenben_li);
 					hidq(3);
 					// 清空
@@ -287,10 +287,40 @@
 					var total = "{'data':{}}";
 					var aa = "111";
 					for(var i = 0;i<index_ol.children.length;i++) {
-						aa = "'id':'"+ i +"','type':'"+ 1 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"'";
+						var k = '';
+						// 如果是单选格式
+						if(index_ol.children[i].lastChild.value == 1) {
+							var k = "";
+							for(var j = 0;j < index_ol.children[i].children[1].children.length;j++) {
+								if( j == index_ol.children[i].children[1].children.length-1) {
+									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"'";
+								}
+								else {
+									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"',";
+								}
+							}
+							aa = "'id':'"+ i +"','type':'"+ 1 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ane':["+k+"]";
+						}
+						// 如果是多选格式
+						else if(index_ol.children[i].lastChild.value == 2) {
+							var k = "";
+							for(var j = 0;j < index_ol.children[i].children[1].children.length;j++) {
+								if( j == index_ol.children[i].children[1].children.length-1) {
+									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"'";
+								}
+								else {
+									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"',";
+								}
+							}
+							aa = "'id':'"+ i +"','type':'"+ 2 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ane':["+k+"]";
+							alert(aa)
+						}
+						// 如果是文本格式
+						else {
+							aa = "'id':'"+ i +"','type':'"+ 3 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"'";
+						}
 					}
 					total = "{'data':{"+ aa +"}}";
-					alert(total)
 				}
 			}
 		</script>
