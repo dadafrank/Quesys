@@ -108,14 +108,14 @@
 	margin: auto;
 	margin-top: 10%;
 }
-.danxuan_div > p,.duoxuan_div > p {
+.danxuan_div > p,.duoxuan_div > p,.wenben_div > p {
 	width: 100%;
 	height: 36px;
 	letter-spacing: 4px;
 	text-align: center;
 	color: white;
 }
-.danxuan_div > textarea,.duoxuan_div > textarea {
+.danxuan_div > textarea,.duoxuan_div > textarea,.wenben_div > textarea {
 	width: 100%;
 	height: 80px;
 	font-size: 18px;
@@ -152,7 +152,7 @@
 	font-size: 20px;
 	margin-top: 20px;
 }
-.danxuan_wancheng,.duoxuan_wancheng {
+.danxuan_wancheng,.duoxuan_wancheng,.wenben_wancheng {
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
