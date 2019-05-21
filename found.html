@@ -259,6 +259,23 @@
 					}
 				}
 			}
+			// 文本完成
+			function wenben_wancheng() {
+				var q = document.getElementById("wenben_q")
+				if(q.value=='') {
+					alert("请填写问题")
+				}
+				else {
+					q_num++;
+					var wenben_ol = document.getElementById("index_ol");
+					var wenben_li = document.createElement("LI");
+					wenben_li.innerHTML = "<p>" + q.value + "</p><div class='index_ol_input'><textarea class='wenben_textarea'></textarea></div><div class='index_ol_delete' onclick='q_delete()'>删除</div>";
+					wenben_ol.appendChild(wenben_li);
+					hidq(3);
+					// 清空
+					q.value = ''
+				}
+			}
 		</script>
 	</body>
 </html>

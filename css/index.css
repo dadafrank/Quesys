@@ -59,7 +59,7 @@ html,body {
 .body2 {
 	height: 100%;
 	width: 100%;
-	background-color: rgba(240,248,255,.4);
+	background-color: rgba(240,248,255,.8);
 }
 .body2 > .inf_img {
 	background-image: url(../img/index1.png);
