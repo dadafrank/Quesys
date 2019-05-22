@@ -286,6 +286,8 @@
 				else {
 					// 传这个给后端
 					var total = "{'data':{}}";
+					// 存放aa的总格
+					var jj = '';
 					var aa = "111";
 					for(var i = 0;i<index_ol.children.length;i++) {
 						var k = '';
@@ -319,8 +321,14 @@
 						else {
 							aa = "'id':'"+ i +"','type':'"+ 3 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"'";
 						}
+						if (i ==index_ol.children.length -1) {
+							jj = jj + "{"+ aa +"}";
+						}
+						else {
+							jj = jj + "{"+ aa +"},";
+						}
 					}
-					total = "{'data':{"+ aa +"}}";
+					total = "{'data':["+ jj +"]}";
 					ajaxfound(total)
 				}
 			}
@@ -330,9 +338,10 @@
 				{
 					url: "./changejson.php",
 					type: "POST",
+					datatype: "text",
 					data: { total },
-					success: function () {
-						alert("创建完成");
+					success: function (success) {
+						alert(success);
 					},
 					error: function () {
 						alert("创建失败")
