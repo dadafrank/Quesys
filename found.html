@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/found.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	</head>
 	<body>
 		<!-- 单选、多选、文本、下拉 -->
@@ -313,7 +314,6 @@
 								}
 							}
 							aa = "'id':'"+ i +"','type':'"+ 2 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ane':["+k+"]";
-							alert(aa)
 						}
 						// 如果是文本格式
 						else {
@@ -321,7 +321,23 @@
 						}
 					}
 					total = "{'data':{"+ aa +"}}";
+					ajaxfound(total)
 				}
+			}
+			function ajaxfound(total)
+			{
+				$.ajax(
+				{
+					url: "./changejson.php",
+					type: "POST",
+					data: { total },
+					success: function () {
+						alert("创建完成");
+					},
+					error: function () {
+						alert("创建失败")
+					}
+				})
 			}
 		</script>
 	</body>
