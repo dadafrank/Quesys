@@ -8,7 +8,8 @@
 	$query = mysql_query($sql);
 	$result = mysql_num_rows($query);
 	if($result >= 1){
-		setcookie("user","frank");
+		setcookie("lalala","frank");
+		setcookie("user","$user");
 		echo "<script>window.location.href='uindex.php'</script>";
 	}
 	else {

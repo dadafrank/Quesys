@@ -1,5 +1,7 @@
 <?php
-	require_once('connect.php');
+	if($_COOKIE["lalala"]!="frank") {
+		echo "<script>alert('请返回登录');window.location.href='index.html'</script>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
