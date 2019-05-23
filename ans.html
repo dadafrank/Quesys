@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>回答问卷</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ans.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="banner">回答问卷</div>
+		<div class="found">
+			<ol class="index_ol" id="index_ol">
+			</ol>
+		</div>
+		<div class="add">提交</div>
+		
+		<script>
+			window.onload = function() {
+				$.ajax(
+				{
+					url: "./fjson/test.json",
+					type: "POST",
+					datatype: "json",
+					success: function (total) {
+						var data = total.data
+						var index_ol = document.getElementById("index_ol")
+						for(var i = 0;i <data.length;i++) {
+							// type为1是单选 2为多选 3为文本
+							if(data[i].type == 1) {
+								var aa = '';
+								for(var j = 0;j < data[i].ans.length;j++) {
+									var k = "<label><input type='radio' name='danxuan"+ i +"'>"+ data[i].ans[j] +"</label>";
+									aa = aa + k
+								}
+								var danxuan_li = document.createElement("LI");
+								danxuan_li.innerHTML = "<p>"+data[i].que+"</p><div class='index_ol_input danxuan_xx'>"+ aa +"</div>";
+								index_ol.appendChild(danxuan_li);
+							}
+							else if(data[i].type == 2) {
+								var aa = '';
+								for(var j = 0;j < data[i].ans.length;j++) {
+									var k = "<label><input type='checkbox' name='duoxuan"+ i +"'>"+ data[i].ans[j] +"</label>";
+									aa = aa + k
+								}
+								var duoxuan_li = document.createElement("LI");
+								duoxuan_li.innerHTML = "<p>"+data[i].que+"</p><div class='index_ol_input duoxuan_xx'>"+ aa +"</div>";
+								index_ol.appendChild(duoxuan_li);
+							}
+							else {
+								var wenben_ol = document.getElementById("index_ol");
+								var wenben_li = document.createElement("LI");
+								wenben_li.innerHTML = "<p>" + data[i].que + "</p><div class='index_ol_input wenben_xx'><textarea class='wenben_textarea'></textarea></div>";
+								wenben_ol.appendChild(wenben_li);
+							}
+						}
+					},
+					error: function () {
+						alert("获取数据失败或者无此问卷")
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

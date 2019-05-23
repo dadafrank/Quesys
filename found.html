@@ -302,7 +302,7 @@
 									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"',";
 								}
 							}
-							aa = "'id':'"+ i +"','type':'"+ 1 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ane':["+k+"]";
+							aa = "'id':'"+ i +"','type':'"+ 1 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ans':["+k+"]";
 						}
 						// 如果是多选格式
 						else if(index_ol.children[i].lastChild.value == 2) {
@@ -315,7 +315,7 @@
 									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"',";
 								}
 							}
-							aa = "'id':'"+ i +"','type':'"+ 2 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ane':["+k+"]";
+							aa = "'id':'"+ i +"','type':'"+ 2 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ans':["+k+"]";
 						}
 						// 如果是文本格式
 						else {

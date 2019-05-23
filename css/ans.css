@@ -1,0 +1,51 @@
+.banner {
+	width: 100%;
+	height: 56px;
+	background-color: skyblue;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	letter-spacing: 4px;
+	line-height: 56px;
+}
+.found {
+	width: 100%;
+}
+.add {
+	width: 80%;
+	height: 36px;
+	margin: 0 auto;
+	margin-top: 10px;
+	text-align: center;
+	line-height: 36px;
+	border-radius: 4px;
+	letter-spacing: 2px;
+	color: white;
+	background-color: rgba(58,191,190,.3);
+}
+.found > ol {
+	width: 86%;
+	margin: auto;
+	margin-bottom: 50px;
+}
+.found > ol >li {
+	width: 100%;
+	list-style-type: decimal;
+	margin: 20px 0;
+	margin-bottom: 30px;
+}
+.index_ol > li > p {
+	margin-bottom: 10px;
+}
+.index_ol_input {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.wenben_textarea {
+	width: 100%;
+	height: 44px;
+	font-size: 18px;
+	border: 1px solid gray;
+}
