@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<!-- 创建问卷、查看问卷简略页、查看问卷详情页（数据处理） -->
-		<div class="banner">Frank</div>
+		<div id="banner" class="banner"><?php echo $_COOKIE['user'] ?></div>
 		<ul class="user_ul">
 			<li><a href="index.html">返回主页</a></li>
 			<li><a href="found.php">创建问卷</a></li>
