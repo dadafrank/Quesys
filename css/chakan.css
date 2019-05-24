@@ -1,0 +1,36 @@
+.banner {
+	width: 100%;
+	height: 56px;
+	background-color: skyblue;
+	text-align: center;
+	color: white;
+	font-family: '华文新魏';
+	font-size: 20px;
+	line-height: 56px;
+}
+.wenjuan {
+	width: 100%;
+	margin-top: 20px;
+}
+.wenjuan > li {
+	width: 90%;
+	height: 30px;
+	/* line-height: 30px; */
+	margin: 0 auto;
+}
+.title {
+	display: inline-block;
+	float: left;
+	width: 75%;
+	height: 100%;
+	overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.delete {
+	display: inline-block;
+	float: right;
+	width: 15%;
+	height: 100%;
+	text-align: center;
+}

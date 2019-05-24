@@ -18,7 +18,7 @@
 		<ul class="user_ul">
 			<li><a href="index.html">返回主页</a></li>
 			<li><a href="found.php">创建问卷</a></li>
-			<li><a href="#">查看问卷</a></li>
+			<li><a href="chakan.php">查看问卷</a></li>
 			<li class="flex_white"></li>
 			<li class="flex_white"></li>
 			<li class="flex_white"></li>

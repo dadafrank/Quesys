@@ -22,8 +22,8 @@ body {
 	flex-wrap: wrap;
 }
 .user_ul > li {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 	margin: 0 auto;
 	margin-top: 15px;
 	border-radius: 4px;
@@ -32,7 +32,7 @@ body {
 	font-size: 17px;
 	letter-spacing: 4px;
 	text-align: center;
-	line-height: 100px;
+	line-height: 120px;
 }
 .flex_white {
 	height: 1px !important;
