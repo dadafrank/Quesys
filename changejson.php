@@ -13,14 +13,20 @@
 	$total = $_POST['total'];
 	$total = htmlspecialchars($total);
 	$total = str_replace("'","\"",$total);
+	$title = $_POST['title'];
+	$title = htmlspecialchars($title);
+	$title = str_replace("'","\"",$title);
 	$num = GetRandStr(10);
 	$num = $num;
 	$user = $_COOKIE['user'];
 	$myfile = fopen("./fjson/$num.json","w") or die("Unable to open file!");
 	fwrite($myfile, $total);
 	fclose($myfile);
+	// 将标题和id归属到用户的json
 	$myfile2 = fopen("./ujson/$user.json","a")or die("Unable to open file!");
 	fwrite($myfile2,$num);
+	fwrite($myfile2,"\n");
+	fwrite($myfile2,$title);
 	fwrite($myfile2,"\n");
 	fclose($myfile2);
 	echo $num;

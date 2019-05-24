@@ -86,7 +86,7 @@
 		<!-- 这里是创建的主页 -->
 		<div class="banner">创建问卷</div>
 		<div class="biaoti_class">
-			<textarea class="biaoti" placeholder="请输入标题"></textarea>
+			<textarea id="title" class="biaoti" placeholder="请输入标题"></textarea>
 		</div>
 		<div class="found">
 			<ol class="index_ol" id="index_ol">
@@ -287,9 +287,13 @@
 			}
 			// 完成问卷调查
 			function wenjuan_wancheng() {
-				var index_ol = document.getElementById("index_ol")
+				var index_ol = document.getElementById("index_ol");
+				var title = document.getElementById("title");
 				if(!index_ol.children.length) {
 					alert("请至少填写一个问题")
+				}
+				else if(title.value == "") {
+					alert("请填写标题")
 				}
 				else {
 					// 传这个给后端
@@ -336,18 +340,18 @@
 							jj = jj + "{"+ aa +"},";
 						}
 					}
-					total = "{'data':["+ jj +"]}";
-					ajaxfound(total)
+					total = "{'title':'"+title.value+"','data':["+ jj +"]}";
+					ajaxfound(total,title.value)
 				}
 			}
-			function ajaxfound(total)
+			function ajaxfound(total,title)
 			{
 				$.ajax(
 				{
 					url: "./changejson.php",
 					type: "POST",
 					datatype: "text",
-					data: { total },
+					data: { total,title },
 					success: function (num) {
 						alert("创建完成");
 						window.location.href = "wenjuanma.html?num=" + num;
