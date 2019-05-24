@@ -14,12 +14,14 @@
 	$total = htmlspecialchars($total);
 	$total = str_replace("'","\"",$total);
 	$num = GetRandStr(10);
+	$num = $num;
 	$user = $_COOKIE['user'];
 	$myfile = fopen("./fjson/$num.json","w") or die("Unable to open file!");
 	fwrite($myfile, $total);
 	fclose($myfile);
 	$myfile2 = fopen("./ujson/$user.json","a")or die("Unable to open file!");
 	fwrite($myfile2,$num);
+	fwrite($myfile2,"\n");
 	fclose($myfile2);
 	echo $num;
 ?>
