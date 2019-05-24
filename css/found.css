@@ -168,3 +168,17 @@
 	font-size: 18px;
 	border: 1px solid gray;
 }
+.biaoti_class {
+	width: 90%;
+	height: 30px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.biaoti {
+	width: 100%;
+	height: 100%;
+	font-size: 18px;
+	line-height: 30px;
+	border: 1px solid gray;
+	text-align: center;
+}

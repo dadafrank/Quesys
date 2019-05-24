@@ -85,6 +85,9 @@
 		<!-- 这里是创建的主页 -->
 		<!-- 这里是创建的主页 -->
 		<div class="banner">创建问卷</div>
+		<div class="biaoti_class">
+			<textarea class="biaoti" placeholder="请输入标题"></textarea>
+		</div>
 		<div class="found">
 			<ol class="index_ol" id="index_ol">
 			</ol>
