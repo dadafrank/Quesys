@@ -345,8 +345,9 @@
 					type: "POST",
 					datatype: "text",
 					data: { total },
-					success: function (success) {
-						alert(success);
+					success: function (num) {
+						alert("创建完成");
+						window.location.href = "wenjuanma.html?num=" + num;
 					},
 					error: function () {
 						alert("创建失败")

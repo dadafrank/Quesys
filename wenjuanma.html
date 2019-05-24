@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>问卷创建完成</title>
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/wenjuanma.css"/>
+	</head>
+	<body>
+		<div class="banner">回答问卷</div>
+		<p id="wangzhi"></p>
+		<a class="back" href="./uindex.php">返回用户中心</a>
+		
+		<script>
+			function getQueryVariable(variable)
+			{
+				   var query = window.location.search.substring(1);
+				   var vars = query.split("&");
+				   for (var i=0;i<vars.length;i++) {
+						   var pair = vars[i].split("=");
+						   if(pair[0] == variable){return pair[1];}
+				   }
+				   return(false);
+			}
+			window.onload = function() {
+				var num = getQueryVariable("num")
+				var a = document.getElementById("wangzhi")
+				a.innerHTML = "http://dadafrank.top/project/Quesys/ans.html?queid=" + num;
+			}
+		</script>
+	</body>
+</html>

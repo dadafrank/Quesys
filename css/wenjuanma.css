@@ -1,0 +1,28 @@
+.banner {
+	width: 100%;
+	height: 56px;
+	background-color: skyblue;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	letter-spacing: 4px;
+	line-height: 56px;
+}
+#wangzhi {
+	width: 90%;
+	height: 100px;
+	margin: auto;
+	margin-top: 80px;
+	text-align: center;
+	/* 解决换行问题 */
+	word-wrap:break-word;
+	font-size: 20px;
+}
+.back {
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: gray;
+	margin-top: 30px;
+	letter-spacing: 3px;
+}
