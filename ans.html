@@ -15,9 +15,10 @@
 			<ol class="index_ol" id="index_ol">
 			</ol>
 		</div>
-		<div class="add">提交</div>
+		<div class="add" onclick="updata()">提交</div>
 		
 		<script>
+			// 获取问卷的数据
 			function getQueryVariable(variable)
 			{
 				   var query = window.location.search.substring(1);
@@ -43,7 +44,7 @@
 							if(data[i].type == 1) {
 								var aa = '';
 								for(var j = 0;j < data[i].ans.length;j++) {
-									var k = "<label><input type='radio' name='danxuan"+ i +"'>"+ data[i].ans[j] +"</label>";
+									var k = "<label><input value='"+ data[i].ans[j] +"' type='radio' name='danxuan"+ i +"'>"+ data[i].ans[j] +"</label>";
 									aa = aa + k
 								}
 								var danxuan_li = document.createElement("LI");
@@ -53,7 +54,7 @@
 							else if(data[i].type == 2) {
 								var aa = '';
 								for(var j = 0;j < data[i].ans.length;j++) {
-									var k = "<label><input type='checkbox' name='duoxuan"+ i +"'>"+ data[i].ans[j] +"</label>";
+									var k = "<label><input value='"+ data[i].ans[j] +"' type='checkbox' name='duoxuan"+ i +"'>"+ data[i].ans[j] +"</label>";
 									aa = aa + k
 								}
 								var duoxuan_li = document.createElement("LI");
@@ -63,7 +64,7 @@
 							else {
 								var wenben_ol = document.getElementById("index_ol");
 								var wenben_li = document.createElement("LI");
-								wenben_li.innerHTML = "<p>" + data[i].que + "</p><div class='index_ol_input wenben_xx'><textarea class='wenben_textarea'></textarea></div>";
+								wenben_li.innerHTML = "<p>" + data[i].que + "</p><div class='index_ol_input wenben_xx'><label><textarea class='wenben_textarea'></textarea></label></div>";
 								wenben_ol.appendChild(wenben_li);
 							}
 						}
@@ -73,6 +74,40 @@
 						window.location.href = "index.html";
 					}
 				})
+			}
+		</script>
+		<script>
+			// 获取用户提交数据
+			function updata() {
+				var index_ol = document.getElementById("index_ol");
+				var danxuan = "";
+				var duoxuan = "";
+				var wenben = "";
+				for(var i = 0;i < index_ol.children.length;i++) {
+					var num = index_ol.children[i].children[1].children.length;
+					// 下面这条到div那边
+					var input_dom = index_ol.children[i].children[1];
+					if(input_dom.children[0].children[0].type == "radio") {
+						for (var j = 0;j < num;j++) {
+							if(input_dom.children[j].children[0].checked) {
+								duoxuan = input_dom.children[j].children[0].value;
+								alert("单选为：" + duoxuan);
+							}
+						}
+					}
+					else if (input_dom.children[0].children[0].type == "checkbox") {
+						for (var j = 0;j < num;j++) {
+							if(input_dom.children[j].children[0].checked) {
+								duoxuan = input_dom.children[j].children[0].value;
+								alert("多选为：" + duoxuan);
+							}
+						}
+					}
+					else {
+						wenben = input_dom.children[0].children[0].value;
+						alert(wenben);
+					}
+				}
 			}
 		</script>
 	</body>

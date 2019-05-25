@@ -33,7 +33,7 @@
 					for($i = 0;$i<count($data);$i+=2) {
 			?>
 			<li>
-				<span class="title"><?php echo $data[$i+1] ?></span>
+				<a target="_blank" href="./ans.html?queid=<?php echo $data[$i]?>"><span class="title"><?php echo $data[$i+1] ?></span></a>
 				<a href="./delete.php?queid=<?php echo $data[$i] ?>&num=<?php echo $i?>"><span class="delete">删除</span></a>
 			</li>
 			<?php
@@ -41,5 +41,6 @@
 				}
 			?>
 		</ul>
+		<p class="tishi">提示：点击标题进入问卷</p>
 	</body>
 </html>
