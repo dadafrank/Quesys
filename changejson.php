@@ -20,7 +20,15 @@
 	$num = $num;
 	$user = $_COOKIE['user'];
 	$myfile = fopen("./fjson/$num.json","w") or die("Unable to open file!");
+	fwrite($myfile,"{");
+	fwrite($myfile,"\n");
+	fwrite($myfile,$title);
+	fwrite($myfile,"\n");
+	fwrite($myfile,",\"number\":\"0\"");
+	fwrite($myfile,"\n");
 	fwrite($myfile, $total);
+	fwrite($myfile,"\n");
+	fwrite($myfile,"}");
 	fclose($myfile);
 	// 将标题和id归属到用户的json
 	$myfile2 = fopen("./ujson/$user.json","a")or die("Unable to open file!");

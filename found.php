@@ -340,8 +340,9 @@
 							jj = jj + "{"+ aa +"},";
 						}
 					}
-					total = "{'title':'"+title.value+"','data':["+ jj +"]}";
-					ajaxfound(total,title.value)
+					total = ",'data':["+ jj +"]";
+					var ntitle = "'title':'"+ title.value +"'";
+					ajaxfound(total,ntitle);
 				}
 			}
 			function ajaxfound(total,title)
