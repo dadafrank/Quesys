@@ -341,8 +341,7 @@
 						}
 					}
 					total = ",'data':["+ jj +"]";
-					var ntitle = "'title':'"+ title.value +"'";
-					ajaxfound(total,ntitle);
+					ajaxfound(total,title.value);
 				}
 			}
 			function ajaxfound(total,title)

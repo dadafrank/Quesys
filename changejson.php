@@ -22,7 +22,7 @@
 	$myfile = fopen("./fjson/$num.json","w") or die("Unable to open file!");
 	fwrite($myfile,"{");
 	fwrite($myfile,"\n");
-	fwrite($myfile,$title);
+	fwrite($myfile,"\"title\":\"$title\"");
 	fwrite($myfile,"\n");
 	fwrite($myfile,",\"number\":\"0\"");
 	fwrite($myfile,"\n");
