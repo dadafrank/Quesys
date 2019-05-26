@@ -11,7 +11,8 @@
 	<body>
 		<div class="banner">回答问卷</div>
 		<div class="found">
-			<h3 class="title">这是一个测试标题</h3>
+			<h3 id="title" class="title">这是一个测试标题</h3>
+			<input id="number" type="hidden" value="" />
 			<ol class="index_ol" id="index_ol">
 			</ol>
 		</div>
@@ -39,6 +40,10 @@
 					success: function (total) {
 						var data = total.data
 						var index_ol = document.getElementById("index_ol")
+						var title = document.getElementById("title")
+						var number = document.getElementById("number")
+						title.innerHTML = total.title;
+						number.value = total.number;
 						for(var i = 0;i <data.length;i++) {
 							// type为1是单选 2为多选 3为文本
 							if(data[i].type == 1) {
@@ -79,10 +84,14 @@
 		<script>
 			// 获取用户提交数据
 			function updata() {
+				var queid = getQueryVariable("queid");
 				var index_ol = document.getElementById("index_ol");
-				var danxuan = "";
+				var number = document.getElementById("number").value;
+				var ans = "";
+				var total = "";
+				var zhongjian = "";
 				var duoxuan = "";
-				var wenben = "";
+				var duoxuan_result = "";
 				for(var i = 0;i < index_ol.children.length;i++) {
 					var num = index_ol.children[i].children[1].children.length;
 					// 下面这条到div那边
@@ -90,8 +99,8 @@
 					if(input_dom.children[0].children[0].type == "radio") {
 						for (var j = 0;j < num;j++) {
 							if(input_dom.children[j].children[0].checked) {
-								duoxuan = input_dom.children[j].children[0].value;
-								alert("单选为：" + duoxuan);
+								// 用户填的值为:input_dom.children[j].children[0].value;
+								ans = "{\"ans"+ i +"\":\""+ input_dom.children[j].children[0].value +"\"}";
 							}
 						}
 					}
@@ -99,15 +108,58 @@
 						for (var j = 0;j < num;j++) {
 							if(input_dom.children[j].children[0].checked) {
 								duoxuan = input_dom.children[j].children[0].value;
-								alert("多选为：" + duoxuan);
+							}
+							if(j != num-1) {
+								duoxuan_result = duoxuan_result + "\""+ duoxuan +"\",";
+							}
+							else {
+								duoxuan_result = duoxuan_result + "\""+ duoxuan +"\"";
 							}
 						}
+						ans = "{\"ans"+ i +"\":["+ duoxuan_result +"]}";
 					}
 					else {
-						wenben = input_dom.children[0].children[0].value;
-						alert(wenben);
+						ans = "{\"ans"+ i +"\":\""+ input_dom.children[0].children[0].value +"\"}";
+					}
+					
+					
+					if(i < index_ol.children.length-1) {
+						zhongjian = zhongjian + ans + ",";
+					}
+					else {
+						zhongjian = zhongjian + ans;
 					}
 				}
+				total = ",\"ans"+ ++number +"\":["+ zhongjian +"]";
+				// 规定number的为4位数
+				var b = number;
+				if(number<10) {
+					number = "000" + number;
+				}
+				else if(number<100) {
+					number = "00" + number;
+				}
+				else if (number<1000) {
+					number = "0" + number;
+				}
+				else {
+					number = number;
+				}
+				tijiao(total,queid,number,b);
+			}
+			function tijiao(total,queid,number,b) {
+				$.ajax(
+				{
+					url: "./ansup.php",
+					type: "POST",
+					data : { total,queid,number,b },
+					success: function (success) {
+						console.log(success);
+					},
+					error: function() {
+						alert("提交失败");
+					}
+				})
 			}
 		</script>
 	</body>
