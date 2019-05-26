@@ -84,6 +84,7 @@
 		<script>
 			// 获取用户提交数据
 			function updata() {
+				var test = 1;
 				var queid = getQueryVariable("queid");
 				var index_ol = document.getElementById("index_ol");
 				var number = document.getElementById("number").value;
@@ -97,17 +98,33 @@
 					// 下面这条到div那边
 					var input_dom = index_ol.children[i].children[1];
 					if(input_dom.children[0].children[0].type == "radio") {
+						var a_danxuan = 0;
 						for (var j = 0;j < num;j++) {
 							if(input_dom.children[j].children[0].checked) {
 								// 用户填的值为:input_dom.children[j].children[0].value;
 								ans = "{\"ans"+ i +"\":\""+ input_dom.children[j].children[0].value +"\"}";
 							}
+							else {
+								a_danxuan++;
+							}
+							if(a_danxuan==num) {
+								alert("有单选没选");
+								test = 0;
+							}
 						}
 					}
 					else if (input_dom.children[0].children[0].type == "checkbox") {
+						var a_duoxuan = 0;
 						for (var j = 0;j < num;j++) {
 							if(input_dom.children[j].children[0].checked) {
 								duoxuan = input_dom.children[j].children[0].value;
+							}
+							else {
+								a_duoxuan++;
+							}
+							if(a_duoxuan == num) {
+								alert("有多选没选");
+								test = 0;
 							}
 							if(j != num-1) {
 								duoxuan_result = duoxuan_result + "\""+ duoxuan +"\",";
@@ -119,10 +136,13 @@
 						ans = "{\"ans"+ i +"\":["+ duoxuan_result +"]}";
 					}
 					else {
+						var a_value = input_dom.children[0].children[0].value;
+						if (a_value.match(/^\s*$/)) {
+							alert("有都是空格的行");
+							test = 0;
+						}
 						ans = "{\"ans"+ i +"\":\""+ input_dom.children[0].children[0].value +"\"}";
 					}
-					
-					
 					if(i < index_ol.children.length-1) {
 						zhongjian = zhongjian + ans + ",";
 					}
@@ -130,22 +150,24 @@
 						zhongjian = zhongjian + ans;
 					}
 				}
-				total = ",\"ans"+ ++number +"\":["+ zhongjian +"]";
-				// 规定number的为4位数
-				var b = number;
-				if(number<10) {
-					number = "000" + number;
+				if(test) {
+					total = ",\"ans"+ ++number +"\":["+ zhongjian +"]";
+					// 规定number的为4位数
+					var b = number;
+					if(number<10) {
+						number = "000" + number;
+					}
+					else if(number<100) {
+						number = "00" + number;
+					}
+					else if (number<1000) {
+						number = "0" + number;
+					}
+					else {
+						number = number;
+					}
+					tijiao(total,queid,number,b);
 				}
-				else if(number<100) {
-					number = "00" + number;
-				}
-				else if (number<1000) {
-					number = "0" + number;
-				}
-				else {
-					number = number;
-				}
-				tijiao(total,queid,number,b);
 			}
 			function tijiao(total,queid,number,b) {
 				$.ajax(
@@ -153,8 +175,9 @@
 					url: "./ansup.php",
 					type: "POST",
 					data : { total,queid,number,b },
-					success: function (success) {
-						console.log(success);
+					success: function () {
+						alert("提交成功");
+						window.location.href = "./index.html";
 					},
 					error: function() {
 						alert("提交失败");

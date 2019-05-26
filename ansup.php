@@ -14,5 +14,4 @@
 	fwrite($file,"\n");
 	fwrite($file,"}");
 	fclose($file);
-	echo "完成";
 ?>
