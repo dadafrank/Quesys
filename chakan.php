@@ -34,7 +34,12 @@
 			?>
 			<li>
 				<a target="_blank" href="./ans.html?queid=<?php echo $data[$i]?>"><span class="title"><?php echo $data[$i+1] ?></span></a>
-				<a href="./delete.php?queid=<?php echo $data[$i] ?>&num=<?php echo $i?>"><span class="delete">删除</span></a>
+				<a>
+					<span class="delete" onclick="istrue()">删除</span>
+					<input type="hidden" value="<?php echo $data[$i]?>" />
+					<input type="hidden" value="<?php echo $i?>" />
+				</a>
+				<a href="./data.php?queid=<?php echo $data[$i] ?>&num=<?php echo $i?>"><span class="delete">情况</span></a>
 			</li>
 			<?php
 					}
@@ -42,5 +47,14 @@
 			?>
 		</ul>
 		<p class="tishi">提示：点击标题进入问卷</p>
+		
+		<script>
+			function istrue(e) {
+				if(confirm("确定删除吗？")) {
+					e = e || window.event;
+					window.location.href = "./delete.php?queid=" + e.target.parentNode.children[1].value + "&num=" + e.target.parentNode.children[2].value;
+				}
+			}
+		</script>
 	</body>
 </html>

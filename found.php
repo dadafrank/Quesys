@@ -150,6 +150,7 @@
 							break;
 				}
 			}
+			// 删除index_ol的子选项
 			function q_delete(e) {
 				e = e || window.event;
 				var index_ol = document.getElementById("index_ol")
