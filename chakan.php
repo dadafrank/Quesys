@@ -39,7 +39,7 @@
 					<input type="hidden" value="<?php echo $data[$i]?>" />
 					<input type="hidden" value="<?php echo $i?>" />
 				</a>
-				<a href="./data.php?queid=<?php echo $data[$i] ?>&num=<?php echo $i?>"><span class="delete">情况</span></a>
+				<a href="./data.html?queid=<?php echo $data[$i] ?>"><span class="delete">情况</span></a>
 			</li>
 			<?php
 					}

@@ -13,9 +13,11 @@
 	$total = $_POST['total'];
 	$total = htmlspecialchars($total);
 	$total = str_replace("'","\"",$total);
+	$total = str_replace("\n","<br/>",$total);
 	$title = $_POST['title'];
 	$title = htmlspecialchars($title);
 	$title = str_replace("'","\"",$title);
+	$title = str_replace("\n","<br/>",$title);
 	$num = GetRandStr(10);
 	$num = $num;
 	$user = $_COOKIE['user'];

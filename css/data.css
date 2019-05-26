@@ -1,0 +1,99 @@
+.banner {
+	width: 100%;
+	height: 56px;
+	background-color: skyblue;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	letter-spacing: 4px;
+	line-height: 56px;
+}
+.title {
+	text-align: center;
+	color: #808080;
+	letter-spacing: 3px;
+	margin-top: 20px;
+}
+.que_title {
+	margin-left: 8px;
+	font-size: 13px;
+	color: slategray;
+}
+.data_div {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.data_ul > li {
+	font-size: 15px;
+	margin-bottom: 40px;
+}
+.data_ul > li > p {
+	color: darkslategray;
+	margin-bottom: 20px;
+}
+.danxuan_img {
+	width: 100%;
+	height: 20px;
+	margin-top: 8px;
+	font-size: 13px;
+	color: slategray;
+	display: flex;
+	justify-content: space-between;
+}
+.danxuan_span1,.danxuan_span3 {
+	flex: 1.5;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.danxuan_span3 {
+	text-align: right;
+}
+.danxuan_span2 {
+	flex: 7;
+}
+.danxuan_jindu {
+	height: 100%;
+	background-color: yellow;
+}
+
+
+
+/* 多选样式 */
+.duoxuan_img {
+	width: 100%;
+	height: 20px;
+	margin-top: 8px;
+	font-size: 13px;
+	color: slategray;
+	display: flex;
+	justify-content: space-between;
+}
+.duoxuan_span1 {
+	flex: 1;
+}
+.duoxuan_span2 {
+	flex: 1;
+	text-align: right;
+}
+
+
+/* 文本文本 */
+.wenben_img {
+	width: 100%;
+	margin-top: 8px;
+	font-size: 13px;
+	color: slategray;
+	border: 1.5px dashed lightgray ;
+	border-radius: 3px;
+}
+.wenben_img > pre {
+	margin: 6px 12px;
+	/* 解决换行问题 */
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
