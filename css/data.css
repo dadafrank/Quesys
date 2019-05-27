@@ -59,9 +59,10 @@
 }
 .danxuan_span2 {
 	flex: 7;
+	font-size: 10px;
 }
 .danxuan_jindu {
-	height: 100%;
+	height: 2px;
 	background-color: yellow;
 }
 

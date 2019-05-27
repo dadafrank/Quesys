@@ -1,4 +1,5 @@
 <?php
+	header("Content-Type: text/html;charset=utf-8");
 	if($_COOKIE["lalala"]!="frank") {
 		echo "<script>alert('请返回登录');window.location.href='index.html'</script>";
 	}

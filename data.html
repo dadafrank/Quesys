@@ -98,22 +98,42 @@
 						var title = document.getElementById("title");
 						var ans_number = document.getElementById("ans_number");
 						title.innerHTML = total.title
-						ans_number.innerHTML = "共有"+ parseInt(total.number) +"人提交了问卷";
+						var p_number = parseInt(total.number)
+						ans_number.innerHTML = "共有"+ p_number +"人提交了问卷";
 						// 开始下面的题目
-						var data_ul = document.getElementById("data_ul")
-						var danxuan_data = [];
-						var duoxuan_data = [];
-						for(var i = 0;i<total.data.length;i++) {
+						var data_ul = document.getElementById("data_ul");
+						var kuadu = total.data.length;
+						var danxuan = [0,0,0,0,0,0,0,0,0,0];
+						var danxuan_r = 0;
+						for(var i = 0;i<kuadu;i++) {
 							if(total.data[i].type == 1) {
-								for(var j = 1;j <= parseInt(total.number);j++) {
-									console.log(total.length)
+								var danxuan_dom = '';
+								var danxuan_dom_div = '';
+								for(var j = i;j<total.ans.length;j+=kuadu) {
+									for(var k = 0;k < total.data[i].ans.length;k++) {
+										if(total.data[i].ans[k] == total.ans[j]) {
+											danxuan[k]++;
+										}
+									}
 								}
+								// 开始创建dom
+								for(var o = 0;o < total.data[i].ans.length;o++) {
+									console.log(danxuan[o])
+									// 设置为保留2位小数
+									var danxuan_width = (danxuan[o]/p_number)*100 + "";
+									danxuan_width = danxuan_width.substring(0,danxuan_width.indexOf(".") + 3);
+									danxuan_dom_div = "<div class='danxuan_img'><span class='danxuan_span1'>"+total.data[i].ans[o]+"</span><span class='danxuan_span2'>"+danxuan[o]+"人<div class='danxuan_jindu' style='width:"+ danxuan_width +"%'></div></span><span class='danxuan_span3'>"+ danxuan_width +"%</span></div>"
+									danxuan_dom = danxuan_dom + danxuan_dom_div;
+								}
+								var danxuan_li = document.createElement("LI");
+								danxuan_li.innerHTML = "<p>第"+ parseInt(i+1) +"题<span class='que_title'>"+ total.data[i].que +"</span></p>" + danxuan_dom;
+								data_ul.appendChild(danxuan_li);
 							}
 							else if(total.data[i].type == 2) {
-								alert("多选")
+								alert("多选");
 							}
 							else {
-								alert("文本")
+								alert("文本");
 							}
 						}
 					},
