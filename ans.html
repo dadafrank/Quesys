@@ -102,7 +102,7 @@
 						for (var j = 0;j < num;j++) {
 							if(input_dom.children[j].children[0].checked) {
 								// 用户填的值为:input_dom.children[j].children[0].value;
-								ans = "{\"ans"+ i +"\":\""+ input_dom.children[j].children[0].value +"\"}";
+								ans = "\""+ input_dom.children[j].children[0].value +"\"";
 							}
 							else {
 								a_danxuan++;
@@ -118,6 +118,12 @@
 						for (var j = 0;j < num;j++) {
 							if(input_dom.children[j].children[0].checked) {
 								duoxuan = input_dom.children[j].children[0].value;
+								if(duoxuan_result == '') {
+									duoxuan_result = duoxuan_result + duoxuan;
+								}
+								else {
+									duoxuan_result = duoxuan_result + "`" + duoxuan;
+								}
 							}
 							else {
 								a_duoxuan++;
@@ -126,14 +132,8 @@
 								alert("有多选没选");
 								test = 0;
 							}
-							if(j != num-1) {
-								duoxuan_result = duoxuan_result + "\""+ duoxuan +"\",";
-							}
-							else {
-								duoxuan_result = duoxuan_result + "\""+ duoxuan +"\"";
-							}
 						}
-						ans = "{\"ans"+ i +"\":["+ duoxuan_result +"]}";
+						ans = "\""+ duoxuan_result +"\"";
 					}
 					else {
 						var a_value = input_dom.children[0].children[0].value;
@@ -141,7 +141,7 @@
 							alert("有都是空格的行");
 							test = 0;
 						}
-						ans = "{\"ans"+ i +"\":\""+ input_dom.children[0].children[0].value +"\"}";
+						ans = "\""+ input_dom.children[0].children[0].value +"\""
 					}
 					if(i < index_ol.children.length-1) {
 						zhongjian = zhongjian + ans + ",";
@@ -151,8 +151,9 @@
 					}
 				}
 				if(test) {
-					total = ",\"ans"+ ++number +"\":["+ zhongjian +"]";
+					total = zhongjian;
 					// 规定number的为4位数
+					number++;
 					var b = number;
 					if(number<10) {
 						number = "000" + number;

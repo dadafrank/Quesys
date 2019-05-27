@@ -30,7 +30,9 @@
 	fwrite($myfile,"\n");
 	fwrite($myfile, $total);
 	fwrite($myfile,"\n");
-	fwrite($myfile,"}");
+	fwrite($myfile,",\"ans\":[");
+	fwrite($myfile,"\n");
+	fwrite($myfile,"]}");
 	fclose($myfile);
 	// 将标题和id归属到用户的json
 	$myfile2 = fopen("./ujson/$user.json","a")or die("Unable to open file!");

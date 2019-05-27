@@ -19,6 +19,13 @@
 	font-size: 13px;
 	color: slategray;
 }
+.ans_number {
+	text-align: center;
+	font-size: 11px;
+	color: lightgray;
+	letter-spacing: 1px;
+	margin-top: 10px;
+}
 .data_div {
 	width: 90%;
 	margin: 0 auto;

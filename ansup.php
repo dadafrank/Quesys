@@ -12,11 +12,14 @@
 	fseek($file,12);
 	fwrite($file,$number);
 	fseek($file,0);
-	for($i = 0;$i < $b + 3;$i++) {
-		fgets($file);
+	if($b != 1) {
+		$total = "," . $total;
+	}
+	for($i = 0;$i < 4 + $b;$i++) {
+		echo fgets($file);
 	}
 	fwrite($file,$total);
 	fwrite($file,"\n");
-	fwrite($file,"}");
+	fwrite($file,"]}");
 	fclose($file);
 ?>
