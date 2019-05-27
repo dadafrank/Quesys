@@ -46,11 +46,10 @@
 						// 开始下面的题目
 						var data_ul = document.getElementById("data_ul");
 						var kuadu = total.data.length;
-						var danxuan = [0,0,0,0,0,0,0,0,0,0];
-						var duoxuan = [0,0,0,0,0,0,0,0,0,0];
 						var duoxuan_word = [];
 						for(var i = 0;i<kuadu;i++) {
 							if(total.data[i].type == 1) {
+								var danxuan = [0,0,0,0,0,0,0,0,0,0];
 								var danxuan_dom = '';
 								var danxuan_dom_div = '';
 								for(var j = i;j<total.ans.length;j+=kuadu) {
@@ -73,6 +72,7 @@
 								data_ul.appendChild(danxuan_li);
 							}
 							else if(total.data[i].type == 2) {
+								var duoxuan = [0,0,0,0,0,0,0,0,0,0];
 								var duoxuan_dom = '';
 								var duoxuan_dom_div = '';
 								var duoxuan_dan = [];
@@ -83,7 +83,6 @@
 										duoxuan_dan.push(nnn[p])
 									}
 								}
-								console.log(duoxuan_dan)
 								// 进行数据对比
 								for(var z = 0;z < duoxuan_dan.length;z++) {
 									for(var q = 0;q < total.data[i].ans.length;q++) {
@@ -92,7 +91,6 @@
 										}
 									}
 								}
-								console.log(duoxuan)
 								// 开始创建dom
 								for(var o = 0;o < total.data[i].ans.length;o++) {
 									duoxuan_dom_div = "<div class='duoxuan_img'><span class='duoxuan_span1'>"+ total.data[i].ans[o] +"</span><span class='duoxuan_span2'>"+ duoxuan[o] +"人</span></div>"
