@@ -67,10 +67,6 @@
 						<pre>监控发哈萨克对方就开始房间拉斯加福克斯就发生发生九分裤房卡哈舒服开始就发货上开发还是开发垃圾</pre>
 					</div>
 				</li>
-				<li>
-					<p>第4题</p>
-					<div></div>
-				</li>
 			</ul>
 		</div>
 		<script>
@@ -104,7 +100,7 @@
 						var data_ul = document.getElementById("data_ul");
 						var kuadu = total.data.length;
 						var danxuan = [0,0,0,0,0,0,0,0,0,0];
-						var danxuan_r = 0;
+						var duoxuan = [0,0,0,0,0,0,0,0,0,0];
 						for(var i = 0;i<kuadu;i++) {
 							if(total.data[i].type == 1) {
 								var danxuan_dom = '';
@@ -130,10 +126,26 @@
 								data_ul.appendChild(danxuan_li);
 							}
 							else if(total.data[i].type == 2) {
-								alert("多选");
+								var duoxuan_dom = '';
+								var duoxuan_dom_div = '';
+								for(var j = i;j<total.ans.length;j+=kuadu) {
+									for(var k = 0;k < total.data[i].ans.length;k++) {
+										if(total.data[i].ans[k] == total.ans[j]) {
+											danxuan[k]++;
+										}
+									}
+								}
 							}
 							else {
-								alert("文本");
+								var wenben_dom = "";
+								var wenben_dom_li = "";
+								for(var j = i;j<total.ans.length;j+=kuadu) {
+									wenben_dom_li = "<div class='wenben_img'><pre>"+ total.ans[j] +"</pre></div>";
+									wenben_dom =  wenben_dom + wenben_dom_li;
+								}
+								var wenben_li = document.createElement("LI");
+								wenben_li.innerHTML = "<p>第"+ parseInt(i+1) +"题<span class='que_title'>"+ total.data[i].que +"</span></p>" + wenben_dom;
+								data_ul.appendChild(wenben_li);
 							}
 						}
 					},
