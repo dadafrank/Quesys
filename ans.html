@@ -102,7 +102,7 @@
 						for (var j = 0;j < num;j++) {
 							if(input_dom.children[j].children[0].checked) {
 								// 用户填的值为:input_dom.children[j].children[0].value;
-								ans = "\""+ input_dom.children[j].children[0].value +"\"";
+								ans = "**"+ input_dom.children[j].children[0].value +"**";
 							}
 							else {
 								a_danxuan++;
@@ -133,7 +133,7 @@
 								test = 0;
 							}
 						}
-						ans = "\""+ duoxuan_result +"\"";
+						ans = "**"+ duoxuan_result +"**";
 					}
 					else {
 						var a_value = input_dom.children[0].children[0].value;
@@ -141,7 +141,7 @@
 							alert("有都是空格的行");
 							test = 0;
 						}
-						ans = "\""+ input_dom.children[0].children[0].value +"\""
+						ans = "**"+ input_dom.children[0].children[0].value +"**"
 					}
 					if(i < index_ol.children.length-1) {
 						zhongjian = zhongjian + ans + ",";
@@ -177,8 +177,7 @@
 					type: "POST",
 					data : { total,queid,number,b },
 					success: function () {
-						alert("提交成功");
-						window.location.href = "./index.html";
+						alert("完成提交");
 					},
 					error: function() {
 						alert("提交失败");

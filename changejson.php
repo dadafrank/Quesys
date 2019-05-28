@@ -12,7 +12,10 @@
 	}
 	$total = $_POST['total'];
 	$total = htmlspecialchars($total);
-	$total = str_replace("'","\"",$total);
+	$total = str_replace("<","&lt;",$total);
+	$total = str_replace(">","&gt;",$total);
+	$total = str_replace("\"","&quot;",$total);
+	$total = str_replace("**","\"",$total);
 	$total = str_replace("\n","<br/>",$total);
 	$title = $_POST['title'];
 	$title = htmlspecialchars($title);

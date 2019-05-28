@@ -21,7 +21,7 @@
 				<li onclick="showq(1)">单选</li>
 				<li onclick="showq(2)">多选</li>
 				<li onclick="showq(3)">文本</li>
-				<li onclick="showq(4)">下拉</li>
+				<li>之后会添加更多</li>
 			</ul>
 		</div>
 		<!-- 单选、单选、单选 -->
@@ -309,30 +309,30 @@
 							var k = "";
 							for(var j = 0;j < index_ol.children[i].children[1].children.length;j++) {
 								if( j == index_ol.children[i].children[1].children.length-1) {
-									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"'";
+									k = k + "**"+ index_ol.children[i].children[1].children[j].innerText +"**";
 								}
 								else {
-									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"',";
+									k = k + "**"+ index_ol.children[i].children[1].children[j].innerText +"**,";
 								}
 							}
-							aa = "'id':'"+ i +"','type':'"+ 1 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ans':["+k+"]";
+							aa = "**id**:**"+ i +"**,**type**:**"+ 1 +"**,**que**:**"+ index_ol.children[i].children[0].innerHTML +"**,**ans**:["+k+"]";
 						}
 						// 如果是多选格式
 						else if(index_ol.children[i].lastChild.value == 2) {
 							var k = "";
 							for(var j = 0;j < index_ol.children[i].children[1].children.length;j++) {
 								if( j == index_ol.children[i].children[1].children.length-1) {
-									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"'";
+									k = k + "**"+ index_ol.children[i].children[1].children[j].innerText +"**";
 								}
 								else {
-									k = k + "'"+ index_ol.children[i].children[1].children[j].innerText +"',";
+									k = k + "**"+ index_ol.children[i].children[1].children[j].innerText +"**,";
 								}
 							}
-							aa = "'id':'"+ i +"','type':'"+ 2 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"','ans':["+k+"]";
+							aa = "**id**:**"+ i +"**,**type**:**"+ 2 +"**,**que**:**"+ index_ol.children[i].children[0].innerHTML +"**,**ans**:["+k+"]";
 						}
 						// 如果是文本格式
 						else {
-							aa = "'id':'"+ i +"','type':'"+ 3 +"','que':'"+ index_ol.children[i].children[0].innerHTML +"'";
+							aa = "**id**:**"+ i +"**,**type**:**"+ 3 +"**,**que**:**"+ index_ol.children[i].children[0].innerHTML +"**";
 						}
 						if (i ==index_ol.children.length -1) {
 							jj = jj + "{"+ aa +"}";
@@ -341,7 +341,7 @@
 							jj = jj + "{"+ aa +"},";
 						}
 					}
-					total = ",'data':["+ jj +"]";
+					total = ",**data**:["+ jj +"]";
 					ajaxfound(total,title.value);
 				}
 			}
