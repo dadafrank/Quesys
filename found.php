@@ -185,10 +185,21 @@
 			function danxuan_wancheng() {
 				var q = document.getElementById("danxuan_q")
 				var a = document.getElementsByClassName("danxuan_textarea")
-				if(q.value=='') {
+				var start = 1;
+				function danxuan_isok() {
+					for(var f = 0; f < a.length;f++) {
+						if(a[f].value.match(/^\s*$/)) {
+							start = 0;
+							break;
+						}
+					}
+				}
+				danxuan_isok();
+				if(q.value.match(/^\s*$/)) {
 					alert("请填写问题")
 				}
-				else if (a[0].value == ''|| a[1].value == '') {
+				else if (!start) {
+					start = 1;
 					alert("请填写选项")
 				}
 				else {

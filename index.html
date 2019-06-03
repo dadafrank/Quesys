@@ -35,6 +35,7 @@
 		</footer>
 		<!-- 登录 -->
 		<div class="board denglu" id="denglu"  style="display: none;">
+			<p class="xxx" onclick="hidb(0)">X&nbsp;&nbsp;</p>
 			<div>
 				<form action="denglu.handle.php" method="post">
 					<input type="text" name="user" class="denglu_user" placeholder="用户名" />
@@ -45,6 +46,7 @@
 		</div>
 		<!-- 注册 -->
 		<div class="board zhuce" id="zhuce" style="display: none;">
+			<p class="xxx" onclick="hidb(1)">X&nbsp;&nbsp;</p>
 			<div>
 				<form action="zhuce.handle.php" method="post">
 					<input type="text" name="user" class="zhuce_user" placeholder="用户名" />
@@ -78,7 +80,6 @@
 					var zhuce = document.getElementById("zhuce")
 					zhuce.style.display = 'none';
 				}
-				stopPropagation()
 			}
 		</script>
 	</body>
