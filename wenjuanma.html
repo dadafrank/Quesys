@@ -10,8 +10,10 @@
 	<body>
 		<div class="banner">回答问卷</div>
 		<p id="wangzhi"></p>
+		<div id="qrcode"></div>
 		<a class="back" href="./uindex.php">返回用户中心</a>
-		
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 		<script>
 			function getQueryVariable(variable)
 			{
@@ -26,7 +28,9 @@
 			window.onload = function() {
 				var num = getQueryVariable("num")
 				var a = document.getElementById("wangzhi")
-				a.innerHTML = "http://dadafrank.top/project/Quesys/ans.html?queid=" + num;
+				var url = "http://dadafrank.top/project/Quesys/ans.html?queid=" + num;
+				a.innerHTML = url;
+				$('#qrcode').qrcode({width:150,height:150,text:url});
 			}
 			// 只在IE有用
 // 			function copy() {
