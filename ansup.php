@@ -16,18 +16,21 @@
 		$b = $bbb;
 		$b++;
 		// 为了保持json数据一致
-		if($b < 10) {
-			$number = "000" . $b;
-		}
-		else if($b < 100){
-			$number = "00" . $b;
-		}
-		else if($b < 1000){
-			$number = "0" . $b;
-		}
-		else {
-			$number = $b;
-		}
+	}
+	else {
+		$b++;
+	}
+	if($b < 10) {
+		$number = "000" . $b;
+	}
+	else if($b < 100){
+		$number = "00" . $b;
+	}
+	else if($b < 1000){
+		$number = "0" . $b;
+	}
+	else {
+		$number = $b;
 	}
 	// 优先修改number,防止错乱
 	$file = fopen("./fjson/$queid.json","r+");
