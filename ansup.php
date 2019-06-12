@@ -12,14 +12,22 @@
 	$datas = json_decode($fileget,true);
 	$bbb = (int)$datas["number"];
 	// 判断两个b是否一样,不一样就让他们想等,只能减少出错率,不能百分比避免.
-	if($b != $bbb) {
+// 	if($b != $bbb) {
+// 		$b = $bbb;
+// 		$b++;
+// 		// 为了保持json数据一致
+// 	}
+// 	else {
+// 		$b++;
+// 	}
+	while($b != $bbb) {
 		$b = $bbb;
-		$b++;
-		// 为了保持json数据一致
 	}
-	else {
-		$b++;
-	}
+	$b++;
+	
+	
+	
+	
 	if($b < 10) {
 		$number = "000" . $b;
 	}

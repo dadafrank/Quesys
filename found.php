@@ -14,6 +14,20 @@
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	</head>
 	<body>
+		
+		<!-- 这里是创建的主页 -->
+		<!-- 这里是创建的主页 -->
+		<!-- 这里是创建的主页 -->
+		<div class="banner">创建问卷</div>
+		<div class="biaoti_class">
+			<textarea id="title" class="biaoti" placeholder="请输入标题"></textarea>
+		</div>
+		<div class="found">
+			<ol class="index_ol" id="index_ol">
+			</ol>
+		</div>
+		<div class="add" onclick="showboard()">新的问题</div>
+		<div class="finish" onclick="wenjuan_wancheng()">完成</div>
 		<!-- 单选、多选、文本、下拉 -->
 		<div class="board" id="board">
 			<div class="boardhid" onclick="hidboard()">X</div>
@@ -81,19 +95,6 @@
 				<p class="xxx" onclick="hidq(4)">X</p>
 			</div>
 		</div>
-		<!-- 这里是创建的主页 -->
-		<!-- 这里是创建的主页 -->
-		<!-- 这里是创建的主页 -->
-		<div class="banner">创建问卷</div>
-		<div class="biaoti_class">
-			<textarea id="title" class="biaoti" placeholder="请输入标题"></textarea>
-		</div>
-		<div class="found">
-			<ol class="index_ol" id="index_ol">
-			</ol>
-		</div>
-		<div class="add" onclick="showboard()">新的问题</div>
-		<div class="finish" onclick="wenjuan_wancheng()">完成</div>
 		
 		
 		<script>

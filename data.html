@@ -11,7 +11,7 @@
 	<body>
 		<div class="banner">问卷情况</div>
 		<h3 id="title" class="title">关于这个网站的问卷调查</h3>
-		<h4 id="ans_number" class="ans_number">共有100人提交了问卷</h4>
+		<h4 id="ans_number" class="ans_number">共有0人提交了问卷</h4>
 		<div class="data_div">
 			<ul id="data_ul" class="data_ul">
 			</ul>
@@ -63,7 +63,7 @@
 								for(var o = 0;o < total.data[i].ans.length;o++) {
 									// 设置为保留2位小数
 									var danxuan_width = (danxuan[o]/p_number)*100 + "";
-									danxuan_width = danxuan_width.substring(0,danxuan_width.indexOf(".") + 3);
+									danxuan_width = danxuan_width.substring(0,danxuan_width.indexOf(".") + 4);
 									danxuan_dom_div = "<div class='danxuan_img'><span class='danxuan_span1'>"+total.data[i].ans[o]+"</span><span class='danxuan_span2'>"+danxuan[o]+"人<div class='danxuan_jindu' style='width:"+ danxuan_width +"%'></div></span><span class='danxuan_span3'>"+ danxuan_width +"%</span></div>"
 									danxuan_dom = danxuan_dom + danxuan_dom_div;
 								}
