@@ -110,6 +110,7 @@
 							if(a_danxuan==num) {
 								alert("有单选没选");
 								test = 0;
+								i = index_ol.children.length;
 							}
 						}
 					}
@@ -131,6 +132,7 @@
 							if(a_duoxuan == num) {
 								alert("有多选没选");
 								test = 0;
+								i = index_ol.children.length;
 							}
 						}
 						ans = "**"+ duoxuan_result +"**";
@@ -140,6 +142,7 @@
 						if (a_value.match(/^\s*$/)) {
 							alert("有都是空格的行");
 							test = 0;
+							i = index_ol.children.length;
 						}
 						ans = "**"+ input_dom.children[0].children[0].value +"**"
 					}
